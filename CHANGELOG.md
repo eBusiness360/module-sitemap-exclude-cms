@@ -3,6 +3,14 @@
 Toutes les évolutions notables du module sont consignées ici.
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/), versionnage [SemVer](https://semver.org/lang/fr/).
 
+## [1.0.2] — 2026-10-06
+
+### Modifié
+- Documentation : capture d'écran de l'interrupteur dans les deux README (`docs/images/`, exclu de l'archive
+  Composer).
+- Documentation : installation avec `module:enable` avant `setup:upgrade`, et explication du double passage
+  nécessaire sans lui (schéma déclaratif d'un module neuf). Aucun changement de code.
+
 ## [1.0.1] — 2026-10-06
 
 ### Modifié

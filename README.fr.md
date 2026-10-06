@@ -11,9 +11,7 @@
 ![PHP 8.2+](https://img.shields.io/badge/PHP-8.2%2B-777BB4)
 ![Packagist](https://img.shields.io/packagist/v/maxcode/module-sitemap-exclude-cms?color=0F1E4D)
 
-<!-- Capture à ajouter : docs/images/cms-page-switch.png (voir le guide de publication)
 ![L'interrupteur « Exclure du plan de site XML » sur une page CMS](docs/images/cms-page-switch.png)
--->
 
 </div>
 
@@ -51,10 +49,21 @@ site*, ni sur la page elle-même.
 
 ```bash
 composer require maxcode/module-sitemap-exclude-cms
+bin/magento module:enable Maxcode_SitemapExcludeCms
 bin/magento setup:upgrade
 bin/magento setup:di:compile
 bin/magento cache:flush
 ```
+
+**Pourquoi `module:enable` d'abord ?** Le module ajoute une colonne (`cms_page.exclude_from_sitemap`)
+par le schéma déclaratif de Magento. `setup:upgrade` construit le schéma à partir des modules qu'il
+connaît au démarrage, or un module tout juste installé par Composer n'est pas encore listé dans
+`app/etc/config.php`. Sans `module:enable`, le premier `setup:upgrade` ne fait qu'enregistrer le module
+et un second passage est nécessaire pour créer la colonne. C'est la façon dont Magento charge sa liste
+de modules : cela vaut pour tout nouveau module qui embarque un `db_schema.xml` (constaté sur 2.4.8-p5).
+Vérifiez avec `bin/magento setup:db:status` : la réponse doit être « All modules are up to date ». Si
+`app/etc/config.php` liste déjà le module (par exemple parce qu'il est versionné et déployé avec lui),
+un seul `setup:upgrade` suffit.
 
 Aucun contenu statique à déployer : le module ajoute seulement un champ à un formulaire existant de
 l'administration.
