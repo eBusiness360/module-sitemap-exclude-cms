@@ -1,0 +1,18 @@
+{
+    "name": "maxcode/module-sitemap-exclude-cms",
+    "description": "Ajoute une case « Exclure du plan de site XML » dans l'onglet SEO de chaque page CMS : les pages cochées n'apparaissent plus dans les plans de site générés par Magento.",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.2",
+        "magento/framework": "^103.0",
+        "magento/module-cms": "*",
+        "magento/module-sitemap": "*"
+    },
+    "autoload": {
+        "files": ["registration.php"],
+        "psr-4": {
+            "Maxcode\\SitemapExcludeCms\\": ""
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "cms_page": {
+        "column": {
+            "exclude_from_sitemap": true
+        }
+    }
+}
