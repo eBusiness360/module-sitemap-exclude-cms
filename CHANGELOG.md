@@ -3,6 +3,12 @@
 Toutes les évolutions notables du module sont consignées ici.
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/), versionnage [SemVer](https://semver.org/lang/fr/).
 
+## [1.0.1] — 2026-10-06
+
+### Modifié
+- `composer.json` : description bilingue anglais / français (affichée telle quelle sur Packagist) et mots-clés.
+  Aucun changement de code.
+
 ## [1.0.0] — 2026-10-06 — Première version
 
 ### Ajouté
